@@ -60,7 +60,7 @@ model.add(Activation('linear'))
 
 # MODEL COMPILING AND TRAINING
 model.compile(loss='mean_squared_error', optimizer='adagrad') # Try SGD, adam, adagrad and compare!!!
-model.fit(trainX, trainY, epochs=5, batch_size=64, verbose=1)
+model.fit(trainX, trainY, epochs=20, batch_size=64, verbose=1)
 
 
 
@@ -71,9 +71,9 @@ testPredict = model.predict(testX)
 
 
 # TRAINING RMSE
-trainScore = math.sqrt(mean_squared_error(trainY[0], trainPredict[:,0]))
+trainScore = math.sqrt(mean_squared_error(trainY, trainPredict[:,0]))
 print('Train RMSE: %.2f' % (trainScore))
 
 # TEST RMSE
-testScore = math.sqrt(mean_squared_error(testY[0], testPredict[:,0]))
+testScore = math.sqrt(mean_squared_error(testY, testPredict[:,0]))
 print('Test RMSE: %.2f' % (testScore))
