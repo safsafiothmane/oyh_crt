@@ -68,11 +68,6 @@ model.fit(trainX, trainY, epochs=5, batch_size=64, verbose=1)
 trainPredict = model.predict(trainX)
 testPredict = model.predict(testX)
 
-# DE-NORMALIZING FOR PLOTTING
-trainPredict = scaler.inverse_transform(trainPredict)
-trainY = scaler.inverse_transform([trainY])
-testPredict = scaler.inverse_transform(testPredict)
-testY = scaler.inverse_transform([testY])
 
 
 # TRAINING RMSE
